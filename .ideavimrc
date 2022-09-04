@@ -1,0 +1,60 @@
+set ignorecase
+set smartcase
+
+" set <leader> to <space>
+let mapleader = " "
+
+" show error by gh
+nmap gh <Action>(ShowErrorDescription)
+
+" go to implement
+nmap gi <Action>(GotoImplementation)
+
+" nav through tabs
+nmap <Leader>h <Action>(PreviousTab)
+nmap <Leader>l <Action>(NextTab)
+
+nnoremap <Leader>y "+y
+nnoremap <Leader>p "+P
+
+" Greatest remap EVER!!  by ericvanjohnson/ideavimrc
+" ref: https://gist.github.com/ericvanjohnson/079ae871e156054d3779e8f1efd8375d
+" Let me explain, this remap while in visiual mode
+" will delete what is currently highlighted and replace it 
+" with what is in the register BUT it will YANK (delete) it 
+" to a VOID register. Meaning I still have what I originally had
+" when I pasted. I don't loose the previous thing I YANKED!
+vnoremap <Leader>p "_dP
+
+" replace whole word under cursor with clipboard
+nnoremap <Leader>r "_diwP
+
+" real delete
+nnoremap <Leader>d "_d
+
+" real x
+vnoremap x "_x
+nnoremap x "_x
+
+" real change
+nnoremap c "_c
+
+" suggestion next & previous without using arrow keys
+imap <C-m> <Action>(EditorDown)
+imap <C-u> <Action>(EditorUp)
+
+" turn off bell sound
+" ref: https://superuser.com/questions/622898/how-to-turn-off-the-bell-sound-in-intellij
+set visualbell
+set noerrorbells
+
+nmap <Leader>j <Action>(Back)
+nmap <Leader>o <Action>(Back)
+nmap <Leader>k <Action>(Forward)
+nmap <Leader><BS> <Action>(JumpToLastChange)
+nmap go <Action>(GotoTypeDeclaration)
+nmap gu <Action>(GotoDeclaration)
+nmap gs <Action>(GotoSuperMethod)
+nmap <Leader>e <Action>(GotoNextError)
+nmap <Leader>i <Action>(ShowIntentionActions)
+vmap <Leader>m <Action>(ExtractFunction)
